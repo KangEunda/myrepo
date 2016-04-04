@@ -2,11 +2,21 @@ package com.j1.w5;
 
 public class Sandwich {
   public static void main(String[] args) {
+    Food b = new Bread();
+    
+    Food b1 = new Cabbage(b);
+    Food b2 = new Ham(b1);
+    Food b3 = new Egg(b2);
+    Food b4 = new Cheese(b3);
+    Food b5 = new Ketchup(b4);
+    
+    System.out.println(b5.getDescription());
+    System.out.println(b5.cost());
   }
 }
 
 abstract class Food {
-  String description = "Unknown beverage";
+  String description = "Unknown food";
   public String getDescription() {
     return description;
   }
@@ -29,7 +39,7 @@ abstract class CondimentDecorator extends Food{
 class Cabbage extends CondimentDecorator{
   Food food;
   public Cabbage(Food f) {
-    Food = f;
+    food = f;
   }
   public String getDescription() {
     return food.getDescription() + ".Cabbage";
@@ -42,7 +52,7 @@ class Cabbage extends CondimentDecorator{
 class Ham extends CondimentDecorator {
   Food food;
   public Ham(Food f) {
-    Food = f;
+    food = f;
   }
   public String getDescription() {
     return food.getDescription() + ".Ham";
@@ -52,16 +62,42 @@ class Ham extends CondimentDecorator {
   }
 }
 
+class Egg extends CondimentDecorator {
+  Food food;
+  public Egg(Food f) {
+    food = f;
+  }
+  public String getDescription() {
+    return food.getDescription() + ".Egg";
+  }
+  public double cost() {
+    return food.cost() + 900;
+  }
+}
+
 class Cheese extends CondimentDecorator {
   Food food;
   public Cheese(Food f) {
-    Food = f;
+    food = f;
   }
   public String getDescription() {
     return food.getDescription() + ".Cheese";
   }
   public double cost() {
     return food.cost() + 600;
+  }
+}
+
+class Ketchup extends CondimentDecorator {
+  Food food;
+  public Ketchup(Food f) {
+    food = f;
+  }
+  public String getDescription() {
+    return food.getDescription() + ".Ketchup";
+  }
+  public double cost() {
+    return food.cost() + 200;
   }
 }
   
