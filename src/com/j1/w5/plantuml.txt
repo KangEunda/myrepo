@@ -3,12 +3,12 @@ class Reader {
 }
 Reader <|-- InputStreamReader
 Reader <|-- StringReader
-Reader <|-- PipeReader
 Reader <|-- BufferedReader
-Reader <|-- FilterReader
+Reader <|-- PipeReader
 Reader <|-- CharArrayReader
-FilterReader <|-- PushbackReader
+Reader <|-- FilterReader
 InputStreamReader <|-- FileReader
 BufferedReader <|-- LineNumberReader
-InputStreamReader *-up- InputStream
+FilterReader <|-- PushbackReader
 BufferedReader *-- Reader
+InputStreamReader *-up- InputStream
