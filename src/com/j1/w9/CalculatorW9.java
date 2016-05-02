@@ -18,7 +18,7 @@ class CalculatorW9 extends Frame implements ActionListener{
   int cnt=0;
  public CalculatorW9()
  {
-  super("아오 계산기");
+  super("Calc");
   p1 = new Panel(new GridLayout(2,1)); 
   la1 = new Label("",Label.RIGHT);
   la2 = new Label("0",Label.RIGHT);
@@ -58,7 +58,6 @@ class CalculatorW9 extends Frame implements ActionListener{
    }
   );
  }
-//여가 버튼 이벤트
  public void actionPerformed(ActionEvent e)
  {
   String com = e.getActionCommand();
